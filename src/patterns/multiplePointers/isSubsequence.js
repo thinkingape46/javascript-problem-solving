@@ -21,7 +21,7 @@ function isSubsequence(stringOne, stringTwo) {
   let leftIndex = 0;
   let rightIndex = lenTwo - 1;
 
-  for (i of stringOne) {
+  for (let i of stringOne) {
     while (leftIndex < lenTwo) {
       const ele = stringTwo[leftIndex];
       //   console.log(i, ele, leftIndex, rightIndex);
