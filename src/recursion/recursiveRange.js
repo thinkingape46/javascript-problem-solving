@@ -6,12 +6,11 @@ Write a function called recursiveRange which accepts a number and adds up all th
 */
 
 function recursiveRange(num) {
-  if (num === 0) {
-    return 0;
+  if (num === 1) {
+    return 1;
   }
-
   return num + recursiveRange(num - 1);
 }
 
-console.log(recursiveRange(6)); // 21
+console.log(recursiveRange(100)); // 21
 console.log(recursiveRange(10)); // 55

@@ -10,12 +10,12 @@ function binarySearch(arr, num) {
   const lenArray = arr.length;
 
   if (num < arr[0]) {
-    console.log(`ops: ${ops}`, -1);
+    console.log(`length: ${lenArray},ops: ${ops}`, -1);
     return -1;
   }
 
   if (num > arr[lenArray - 1]) {
-    console.log(`ops: ${ops}`, -1);
+    console.log(`length: ${lenArray},ops: ${ops}`, -1);
     return -1;
   }
 
@@ -25,11 +25,11 @@ function binarySearch(arr, num) {
   while (Math.abs(rightIndex - leftIndex) > 1) {
     ops++;
     if (arr[leftIndex] === num) {
-      console.log(`ops: ${ops}, solution:`, leftIndex);
+      console.log(`length: ${lenArray},ops: ${ops}, solution:`, leftIndex);
       return leftIndex;
     }
     if (arr[rightIndex] === num) {
-      console.log(`ops: ${ops}, solution:`, rightIndex);
+      console.log(`length: ${lenArray},ops: ${ops}, solution:`, rightIndex);
       return rightIndex;
     }
 
@@ -38,7 +38,7 @@ function binarySearch(arr, num) {
     const centerItem = arr[centerIndex];
 
     if (arr[centerIndex] === num) {
-      console.log(`ops: ${ops}, solution:`, centerIndex);
+      console.log(`length: ${lenArray},ops: ${ops}, solution:`, centerIndex);
       return centerIndex;
     } else if (centerItem > num) {
       rightIndex = centerIndex;
@@ -47,7 +47,7 @@ function binarySearch(arr, num) {
     }
   }
 
-  console.log(`ops: ${ops}, solution:`, -1);
+  console.log(`length: ${lenArray},ops: ${ops}, solution:`, -1);
   return -1;
 }
 
