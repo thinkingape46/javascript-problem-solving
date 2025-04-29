@@ -32,34 +32,27 @@ var longestConsecutive = function (nums) {
     return 0;
   }
 
-  const obj = {};
+  const arr = nums.sort((a, b) => a - b);
 
-  nums.forEach((num) => {
-    obj[num] = 1;
-  });
-
-  const arr = Object.keys(obj)
-    .map((n) => Number(n))
-    .sort((a, b) => a - b);
-
-  let longestConsecutiveNumber = 0;
-  let counter = 0;
+  let longestConsecutiveNumber = 1;
+  let counter = 1;
 
   for (let i = 0; i < arr?.length; i++) {
-    console.log(counter, longestConsecutiveNumber, arr[i], arr[i - 1]);
-    if (arr[i] - arr[i - 1] === 1) {
+    const prevEle = arr[i - 1];
+    const currentEle = arr[i];
+    if (currentEle === prevEle) {
+      continue;
+    } else if (currentEle - prevEle === 1) {
       counter++;
-    } else if (counter >= longestConsecutiveNumber) {
-      longestConsecutiveNumber = counter + 1;
-      counter = 0;
+    } else if (counter > longestConsecutiveNumber) {
+      longestConsecutiveNumber = counter;
+      counter = 1;
     } else {
-      counter = 0;
+      counter = 1;
     }
   }
-  console.log(arr);
-  console.log(counter + 1, longestConsecutiveNumber);
 
-  return Math.max(counter + 1, longestConsecutiveNumber);
+  return Math.max(counter, longestConsecutiveNumber);
 };
 
-longestConsecutive([-1, -9, -5, -2, -9, 8, -8, 1, -9, -3, -3]);
+console.log(longestConsecutive([1, 0, 1, 2]));
