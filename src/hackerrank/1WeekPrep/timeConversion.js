@@ -5,16 +5,15 @@ function timeConversion(s) {
 
   const timeSplit = s.split(":");
 
-  const hr =
-    amOrPm === "PM"
-      ? +timeSplit[0] === 12
-        ? "12"
-        : +timeSplit[0] + 12
-      : +timeSplit[0] === 12
-      ? "00"
-      : timeSplit[0];
+  let hr = timeSplit[0];
+
+  if (hr == "12") {
+    hr = amOrPm === "AM" ? "00" : "12";
+  } else if (amOrPm === "PM") {
+    hr = String(+hr + 12);
+  }
 
   return hr + s.slice(2, s.length - 2);
 }
 
-console.log(timeConversion("12:01:00AM"));
+console.log(timeConversion("12:01:00PM"));
