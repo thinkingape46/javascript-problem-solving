@@ -23,6 +23,13 @@ function insertionSort(arr, comparator) {
     }
   }
 
+  console.table({
+    length: arrLen,
+    count: count,
+    "n^2": arrLen ** 2,
+    nLogn: Math.ceil(arrLen * Math.log10(arrLen)),
+  });
+
   return arr;
 }
 
@@ -50,7 +57,7 @@ function strComp(a, b) {
   return 0;
 }
 
-console.log(JSON.stringify(insertionSort(kitties, strComp)));
+console.log(insertionSort(kitties, strComp));
 
 var moarKittyData = [
   {
@@ -80,3 +87,4 @@ function oldestToYoungest(a, b) {
 }
 
 console.log(insertionSort(moarKittyData, oldestToYoungest));
+console.log(insertionSort([...new Array(10)].map(Function.call, Math.random)));
