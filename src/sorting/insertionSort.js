@@ -89,11 +89,17 @@ function insertionSort(arr, comparator) {
 // }
 
 // console.log(insertionSort(moarKittyData, oldestToYoungest));
-// console.log(insertionSort([...new Array(100)].map(Function.call, Math.random)));
-// console.log(insertionSort([...new Array(100).keys()]));
 console.log(
-  insertionSort([
-    ...new Array(100000).keys().filter((n) => n % 2 !== 0),
-    ...new Array(100000).keys().filter((n) => n % 2 === 0),
-  ])
+  insertionSort([...new Array(200000)].map(Function.call, Math.random))
 );
+// console.log(insertionSort([...new Array(100).keys()]));
+// console.log(
+//   insertionSort([
+//     ...new Array(100000).keys().filter((n) => n % 2 !== 0),
+//     ...new Array(100000).keys().filter((n) => n % 2 === 0),
+//   ])
+// );
+
+// 100 -> 1
+// 100000 -> 9909
+// 200000 -> 48212
