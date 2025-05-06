@@ -20,14 +20,7 @@ class SinglyLinkedList {
     if (!this.#head) {
       this.#head = node;
     } else {
-      let currentValue = this.#head;
-      for (let i = 1; i <= this.length; i++) {
-        if (i === this.length) {
-          currentValue.next = node;
-        } else {
-          currentValue = currentValue.next;
-        }
-      }
+      this.#tail.next = node;
     }
 
     this.#tail = node;
@@ -47,6 +40,11 @@ class SinglyLinkedList {
       }
     }
     this.length--;
+    return this;
+  }
+
+  get next() {
+    return this.#head.next;
   }
 
   get tail() {
@@ -63,4 +61,4 @@ a.push(4);
 a.push(5);
 a.pop();
 a.pop();
-console.log(a);
+console.log(a.next.next);
