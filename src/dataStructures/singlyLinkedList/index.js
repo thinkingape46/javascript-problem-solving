@@ -6,59 +6,47 @@ class Node {
 }
 
 class SinglyLinkedList {
-  #head;
-  #tail;
   constructor() {
-    this.#head = null;
-    this.#tail = null;
+    this.head = null;
+    this.tail = null;
     this.length = 0;
   }
 
   push(value) {
     const node = new Node(value);
 
-    if (!this.#head) {
-      this.#head = node;
+    if (!this.head) {
+      this.head = node;
     } else {
-      this.#tail.next = node;
+      this.tail.next = node;
     }
 
-    this.#tail = node;
+    this.tail = node;
     this.length++;
     return this;
   }
 
   pop() {
-    let value = this.#head;
+    let value = this.head;
     for (let i = 1; i < this.length - 1; i++) {
       value = value.next;
 
       // Penultimate position -> new tail
       if (i === this.length - 2) {
-        this.#tail = value;
-        this.#tail.next = null;
+        this.tail = value;
+        this.tail.next = null;
       }
     }
     this.length--;
     return this;
   }
-
-  get next() {
-    return this.#head.next;
-  }
-
-  get tail() {
-    return this.#tail;
-  }
 }
 
-const a = new SinglyLinkedList();
+const list = new SinglyLinkedList();
 
-a.push(1);
-a.push(2);
-a.push(3);
-a.push(4);
-a.push(5);
-a.pop();
-a.pop();
-console.log(a.next.next);
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+list.push(5);
+console.log(list.head);
