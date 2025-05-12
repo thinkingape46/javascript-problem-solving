@@ -17,11 +17,12 @@ class SinglyLinkedList {
 
     if (!this.head) {
       this.head = node;
+      this.tail = node;
     } else {
       this.tail.next = node;
+      this.tail = node;
     }
 
-    this.tail = node;
     this.length++;
     return this;
   }
@@ -81,22 +82,52 @@ class SinglyLinkedList {
 
     return this;
   }
+
+  reverse() {
+    if (this.length < 2) {
+      return this;
+    }
+
+    let prev = null;
+    let current = this.head;
+    this.tail = current;
+
+    let i = 0;
+
+    while (current && i < 10) {
+      // prev <- current <- next
+      const next = current.next;
+      current.next = prev;
+      // Prev becomes current
+      prev = current;
+      // Next becomes current
+      current = next;
+
+      i++;
+    }
+
+    this.head = prev;
+
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
 
-// list.push(1);
-// list.push(2);
-// list.push(3);
-// list.push(4);
-// list.push(5);
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+list.push(5);
 
 // console.log(list.shift());
 // console.log(list.shift());
 // console.log(list.shift());
-console.log(list.unshift(0));
-console.log(list.unshift(1));
-console.log(list.unshift(2));
-console.log(list.push(10));
+// console.log(list.unshift(0));
+// console.log(list.unshift(1));
+// console.log(list.unshift(2));
+// console.log(list.push(10));
 
-console.log(list);
+// console.log(list);
+console.log(list.reverse());
+// console.log(list);
