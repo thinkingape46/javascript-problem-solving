@@ -92,22 +92,14 @@ class SinglyLinkedList {
     let current = this.head;
     this.tail = current;
 
-    let i = 0;
-
-    while (current && i < 10) {
-      // prev <- current <- next
+    while (current) {
       const next = current.next;
       current.next = prev;
-      // Prev becomes current
       prev = current;
-      // Next becomes current
       current = next;
-
-      i++;
     }
 
     this.head = prev;
-
     return this;
   }
 }
